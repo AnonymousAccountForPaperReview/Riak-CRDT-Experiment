@@ -1,0 +1,9 @@
+input/
+out/
+target/
+result/
+.idea/
+Dependencies/
+*.trc
+*.zip
+*.out
