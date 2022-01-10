@@ -154,13 +154,32 @@ public abstract class RiakExpRunner {
     }
 
     public static void main(String[] args) throws Exception {
-        // RiakExpRunner.setDelay(args[0]);
-        for (int i = 0; i < 400000; i++) {
-            RiakExpRunner runner = new MapRunner(i);
-            runner.setDataType("map321");
-            runner.run();
+        int n = Integer.parseInt(args[2]);
+        if (args[0].equals("set")) {
+            String type;
+            if (args[1].equals("1")) {
+                type = "set311";
+            } else {
+                type = "set321";
+            }
+            for (int i = 0; i < n; i++) {
+                RiakExpRunner runner = new SetRunner(i);
+                runner.setDataType(type);
+                runner.run();
+            }
+        } else {
+            String type;
+            if (args[1].equals("1")) {
+                type = "map311";
+            } else {
+                type = "map321";
+            }
+            for (int i = 0; i < n; i++) {
+                RiakExpRunner runner = new MapRunner(i);
+                runner.setDataType(type);
+                runner.run();
+            }
         }
-        // RiakExpRunner.removeDelay(args[0]);
     }
 }
 
